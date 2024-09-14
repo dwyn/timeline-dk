@@ -1,38 +1,24 @@
 import React from 'react';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import About from './About';
-import Contact from './Contact';
-import Home from './Home';
-import TimelinePage from './TimelinePage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
+import Home from './pages/Home/Home';
+import TimelinePage from './pages/Timeline/TimelinePage';
+import { ComplexNavbar } from './components/ComplexNavbar/ComplexNavbar';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About Me</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/timeline">Timeline</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Define Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/timeline" element={<TimelinePage />} />
-        </Routes>
+      <div className="min-h-screen bg-gray-900">
+        <ComplexNavbar className="fixed top-0 left-0 right-0 z-50" />
+        <div className="container mx-auto pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/timeline" element={<TimelinePage />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

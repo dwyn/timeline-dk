@@ -128,31 +128,24 @@ const TimelinePage: React.FC = () => {
     fetchEpochs(); // Invoke the fetch function to retrieve the epochs
   }, []); // The empty dependency array ensures this runs only once on component mount
 
-  // Calculate the height based on the number of epochs, assuming each card takes 500px height
-  const calculatedHeight = epochs.length * 500; // Adjust the multiplier as needed
-
   return (
-    <div
-      style={{
-        width: '1440px', // Set a fixed width for the timeline container
-        height: `${calculatedHeight}px`, // Dynamically set height based on the number of epochs
-      }}
-    >
-      {/* Render the Chrono timeline component */}
-      {epochs.length === 0 ? ( // Render a fallback message if no epochs are available
-        <div>No data available</div>
-      ) : (
-        <Chrono
-          items={epochs} // Use the state for Chrono items
-          mode="VERTICAL_ALTERNATING" // Use the vertical alternating mode for the timeline
-          scrollable={{ scrollbar: true }} // Enable scrollable mode with a scrollbar
-          theme={{
-            cardBgColor: '#FADAC1', // Background color for the timeline cards
-            titleColor: '#00001C', // Color for the card titles
-            titleColorActive: '#C43B39', // Color for the active card title
-          }}
-        />
-      )}
+    <div className="grid grid-cols-mobile lg:grid-cols-desktop gap-gutter">
+      <div className="col-span-full">
+        {epochs.length === 0 ? (
+          <div>No data available</div>
+        ) : (
+          <Chrono
+            items={epochs}
+            mode="VERTICAL_ALTERNATING"
+            scrollable={{ scrollbar: true }}
+            theme={{
+              cardBgColor: '#FADAC1',
+              titleColor: '#00001C',
+              titleColorActive: '#C43B39',
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };

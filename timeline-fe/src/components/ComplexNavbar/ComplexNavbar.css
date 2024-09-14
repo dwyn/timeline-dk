@@ -1,0 +1,37 @@
+.navbar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  background-color: #2a2a2a;
+  border-radius: 35px;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.NavigationMenuIndicator {
+  background-color: grey;
+}
+
+.NavigationMenuIndicator[data-orientation='horizontal'] {
+  height: 3px;
+  transition: width, transform, 250ms ease;
+}
+
+.block {
+  display: block;
+}
+
+.hover\:bg-accent:hover {
+  background-color: #e5e7eb;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    width: 90%;
+    border-radius: 30px;
+  }
+}

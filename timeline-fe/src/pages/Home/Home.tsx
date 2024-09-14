@@ -1,10 +1,10 @@
 import React from 'react';
+import Hero from '@/components/Hero/Hero';
 
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page of the application.</p>
+      <Hero/>
     </div>
   );
 };
